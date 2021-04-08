@@ -1,2 +1,2 @@
 # terrain101
-experiments with terrain
+Experiments in the computation and representation of terrain
