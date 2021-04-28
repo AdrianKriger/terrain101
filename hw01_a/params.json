@@ -1,0 +1,41 @@
+{
+  "input-file": "samples.xyz",
+  "input-fileSiz": "siz_samples.xyz",
+  "input-fileTaz": "taz_samples.xyz",
+   
+  "nn": {
+    "output-file": "KDTree_nn.asc",
+    "output-fileSiz": "siz_KDTreeNN.asc",
+    "output-fileTaz": "taz_KDTreeNN.asc",
+    "cellsize": 10.0,
+    "cellsizeSiz": 500.0,
+    "cellsizeTaz": 250.0
+  },
+  "idw": {
+    "output-file": "KDTree_idw.asc",
+    "output-fileSiz": "siz_KDTreeNN.asc",
+    "output-fileTaz": "taz_KDTreeNN.asc",
+    "cellsize": 10.0,
+    "cellsizeSiz": 500.0,
+    "cellsizeTaz": 250.0,
+    "radius": 15,
+    "power": 2
+  },
+  "tin": {
+    "output-file": "Delaunay_tin.asc",
+    "output-fileSiz": "siz_Delaunay_tin.asc",
+    "output-fileTaz": "taz_Delaunay_tin.asc",
+    "cellsize": 10.0,
+    "cellsizeSiz": 500.0,
+    "cellsizeTaz": 250.0
+  },
+  "kriging": {
+    "output-file": "kriging.asc",
+    "output-fileSiz": "siz_kriging.asc",
+    "output-fileTaz": "taz_kriging.asc",
+    "cellsize": 10.0,
+    "cellsizeSiz": 500.0,
+    "cellsizeTaz": 250.0,
+    "radius": 15
+  }
+}
