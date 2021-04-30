@@ -1,4 +1,4 @@
-Interpolation.
+*Interpolation.*
 
 Kd-tree Nearest neighbor, Kd-tree Inverse distance weighting (idw), Delaunay ~ Triangulated Irregular Network (tin) and Kriging (GaussianProcessRegression).
 
