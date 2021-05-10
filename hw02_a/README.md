@@ -18,5 +18,5 @@ Triangulated surface with 100-, 50- and 25m threshold compared to the original b
 Consult [hw02_a.ipynb](https://github.com/AdrianKriger/terrain101/blob/main/hw02_a/hw02_a.ipynb) for a point-by-point comparison of the refined minus the original.
 
 Good to know:
-              - Its no efficient.
+              - Its no efficient.  
               - All the output are not necessary. Having the functions to produce them are nice to have through.
