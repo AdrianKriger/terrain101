@@ -1,0 +1,12 @@
+{
+    "input-file": "el_capitan.tif",
+    "output-xyz": "gdal2xyz.xyz",
+    "output-NoNaNxyz": "NoNaN.xyz",
+    "error-threshold": 25.0,
+    "output-file-tin": "tin_25m.obj",
+    "output-file-tif": "img_25m.tif",
+    "output-file-impXYZ": "tinxyz_25m.csv",
+    "output-file-grid": "grid_25m.csv",
+    "output-file-diffTiff": "diff_25m.tif",
+    "output-file-diffxyz": "diff_25m.csv"
+}
