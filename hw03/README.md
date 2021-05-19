@@ -9,7 +9,7 @@ Given an unclassified LiDAR dataset:
 Example data available [here](https://3d.bk.tudelft.nl/courses/backup/geo1015/2019/hw/03/).
 
 To classify we execute a [pdal](https://pdal.io/index.html) pipeline that performs:
-  - Poisson sampling - identifies outliers and noise - segments ground and non-ground through a Pogressive Morphological Filter (PMF) - and refines the classification with a nearest neighbour consensus.
+  - Poisson sampling - identifies outliers and noise - segments ground and non-ground through a Progressive Morphological Filter (PMF) - and refines the classification with a nearest neighbour consensus.
 
 Set parameters with [params.json](https://github.com/AdrianKriger/terrain101/blob/main/hw03/params.json) 
 ~ `urban` and `rural` either `True`/`False`; and `idw` and `tin` either `True`/`False`. Execute with [geo1015_hw03.py](https://github.com/AdrianKriger/terrain101/blob/main/hw03/geo1015_hw03.py). 
