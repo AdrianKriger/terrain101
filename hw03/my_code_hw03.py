@@ -163,7 +163,7 @@ def clsy_pipe(las, jparams):
 
 def dsm_pipe(arr, extent, resolution, origin, name, jparams):
     """
-    pdal pipelien to read a classified .las numpy (1 and 2, no noise[7]) 
+    pdal pipeline to read a classified .las numpy (1 and 2, no noise[7]) 
     and generate a dsm ascii raster via writers.gdal built in idw
     """
     pline={
