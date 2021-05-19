@@ -1,10 +1,10 @@
 **Ground Filtering.**
 
-Given an unclassified LiDAR dataset:  
-  i) Classify ground; and  
-  ii) Create an ascii raster Digital Terrain Model (DTM) through:  
-      a) Inverse Distance Weighting (idw); and   
-      b) a Delaunay-based linear interpolation (tin).
+Given an unclassified LiDAR dataset:
+i) Classify ground; and  
+ii) Create an ascii raster Digital Terrain Model (DTM) through:  
+    a) Inverse Distance Weighting (idw); and   
+    b) a Delaunay-based linear interpolation (tin).
  
 Example data available [here](https://3d.bk.tudelft.nl/courses/backup/geo1015/2019/hw/03/).
 
