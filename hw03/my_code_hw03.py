@@ -107,7 +107,7 @@ def write_obj(pts, dt, obj_filename):
 
 def clsy_pipe(las, jparams):
     """
-    pdal pipelien to read .las, poisson resample, identify low noise, identify outliers, 
+    pdal pipeline to read .las, poisson resample, identify low noise, identify outliers, 
     classify ground and non-ground 
     ~ refine the classification with a nearest neighbor search and write the result as a .las
     """
