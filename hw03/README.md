@@ -15,7 +15,7 @@ Set parameters with [params.json](https://github.com/AdrianKriger/terrain101/blo
 ~ `urban` and `rural` either `True`/`False`; and `idw` and `tin` either `True`/`False`.  
 Execute with [geo1015_hw03.py](https://github.com/AdrianKriger/terrain101/blob/main/hw03/geo1015_hw03.py). 
 Output includes a DTM, an .obj of the triangulated surface and as a bonus a DSM.  
-[fancyPlotting.py](https://github.com/AdrianKriger/terrain101/blob/main/hw03/fancyPlotting.py) to render the ground points (as below) via [pyvista](https://docs.pyvista.org/).
+[fancyPlotting.py](https://github.com/AdrianKriger/terrain101/blob/main/hw03/fancyPlotting.py) to render the ground points (as below) via [PyVista](https://docs.pyvista.org/).
 
 ![Alt text](https://github.com/AdrianKriger/terrain101/blob/main/hw03/hw03_orbit_2.gif)
 
