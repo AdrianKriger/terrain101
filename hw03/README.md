@@ -1,6 +1,6 @@
 **Ground Filtering.**
 
-Given an unclassified LiDAR dataset:
+Given an unclassified LiDAR dataset:  
 i) Classify ground; and  
 ii) Create an ascii raster Digital Terrain Model (DTM) through:  
     a) Inverse Distance Weighting (idw); and   
