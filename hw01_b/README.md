@@ -26,3 +26,4 @@ building outlines available [here](https://odp-cctegis.opendata.arcgis.com/datas
 Good to know:
 - for larger datasets a multi-processor program, as per the [original](https://github.com/khalhoz/geo1101-ahn3-GF-and-Interpolation), might be more effective;
 - building outlines and water features should be harvested via feature/map service. [OWSLib](https://github.com/geopython/OWSLib) might be a good start.
+- note the crs='+proj=tmerc +lat_0=0 +lon_0=19 +k=1 +x_0=0 +y_0=0 +axis=enu +ellps=WGS84 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs'
