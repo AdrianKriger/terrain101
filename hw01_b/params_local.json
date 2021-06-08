@@ -1,0 +1,22 @@
+{
+    "input-las": "./las/CPUT_Lidar.las",
+    "dtm": "True",
+    "dsm": "True",
+    "size": 1,
+    
+    "interpolation_methods": ["idwPDAL", "idwQUAD", "tinNN", "tinLaplace", "tinLinear", "tinCnst"],
+    
+    "tinLinear": "./tinLinear/",
+    "tinLaplace": "./tinLaplace/",
+    
+    "pdal-idw": "./idwPDAL/",
+    "pdal-idw-rad": 2, "pdal-idw-pow": 2, "pdal-idw-wnd": 4,
+    
+    "quad-idw": "./idwQUAD/",
+    "start_rk": 4, "pwr": 2, "minp": 2, "incr_rk": 2, "method": "k-nearest", "tolerance": 0.1, 
+    "maxiter": 100,
+    
+    "tin-NN": "./tinNN/",
+    
+    "tin-Cnst": "./tinCnst/"
+}
