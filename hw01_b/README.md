@@ -19,7 +19,7 @@ Building outlines were added as contraints for the [CGAL-Constrained Delaunay](h
 building outlines available [here](https://odp-cctegis.opendata.arcgis.com/datasets/4a542172a2cc430898a5e635d688eee3_86/explore). The PenTech_feature from the stormwater dataset available [here](https://odp-cctegis.opendata.arcgis.com/datasets/74fa0c08ca43494d9b92b1431205bfd7_71/explore). *'Hydro-flattening'* was not done.
 
 [vertical_diff_local.py](https://github.com/AdrianKriger/terrain101/blob/main/hw01_b/vertical_diff_local.py) will perform a mean-absolute-error calculation (*that is LiDAR minus dtm/dsm*). Consult [CoCT_cput.ipynb](https://github.com/AdrianKriger/terrain101/blob/main/hw01_b/CoCT_cput.ipynb) for a look at the result. 
-[fancyPlotter.py](https://github.com/AdrianKriger/terrain101/blob/main/hw01_b/fancyPlotter.py) to visualize the result (as below)
+[fancyPlotter.py](https://github.com/AdrianKriger/terrain101/blob/main/hw01_b/fancyPlotter.py) to visualize (as below)
 
 ![Alt text](https://github.com/AdrianKriger/terrain101/blob/main/hw01_b/hw01_b_DtmDsm.gif)
 
