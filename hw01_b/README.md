@@ -16,4 +16,12 @@ Input a classified LiDAR dataset (1 and 2 minumum); which is cropped (line 68 of
 
 Set parameters with. Execute with. 
 Building outlines were added as contraints for the CGAL-Constrained Delaunay. To test the basic_flattening of waterbodies a wetland in the vicinity was harvested. 
-building outlines available [here](https://odp-cctegis.opendata.arcgis.com/datasets/4a542172a2cc430898a5e635d688eee3_86/explore). The Wetland Name	PenTech_feature [wetland](). 
+building outlines available [here](https://odp-cctegis.opendata.arcgis.com/datasets/4a542172a2cc430898a5e635d688eee3_86/explore). The PenTech_feature from the stormwater dataset available [here](https://odp-cctegis.opendata.arcgis.com/datasets/74fa0c08ca43494d9b92b1431205bfd7_71/explore). 
+
+vertical_diff_local.py will perfrom a mean-accuray-error calculation (*that is LiDAR minus dtm/dsm*)
+fancyPlotter.py to visualize the result (as below)
+
+
+Good to know:
+- for larger datasets a multi-processor program, as per the [original](https://github.com/khalhoz/geo1101-ahn3-GF-and-Interpolation), might be more effective;
+- building outlines and water features should be harvested via feature/map service. [OWSLib](https://github.com/geopython/OWSLib) might be a good start.
