@@ -12,7 +12,7 @@ Procedures include:
 The methods were executed to [refine/improve (re-grid) the Actueel Hoogtebestand Nederland (AHN)](https://github.com/tudelft3d/geo1101.2020.ahn3).
 
 We execute this in a local context ~ LiDAR available upon request from [City of Cape Town](https://www.capetown.gov.za/). geopackage of the area-of-interest available [here](https://github.com/AdrianKriger/terrain101/tree/main/hw01_b/aoi) to reproduce the result. 
-Input a classified LiDAR dataset (1 and 2 minumum); which is cropped (line 68 of - see .ipynb to choose an extent) with basic outlier and noise detection.
+Input a classified LiDAR dataset (1 and 2 minumum); which is cropped (line 68 of [code_AHN3_local.py](https://github.com/AdrianKriger/terrain101/blob/main/hw01_b/code_AHN3_local.py)- see [CoCT_cput.ipyn](https://github.com/AdrianKriger/terrain101/blob/main/hw01_b/CoCT_cput.ipyn) to choose an extent) with basic outlier and noise detection.
 
 Set parameters [with](https://github.com/AdrianKriger/terrain101/blob/main/hw01_b/params_local.json). Execute [with](https://github.com/AdrianKriger/terrain101/blob/main/hw01_b/geoAHN3_local.py). 
 Building outlines were added as contraints for the CGAL-Constrained Delaunay. To test the basic_flattening of waterbodies a wetland in the vicinity was harvested. 
