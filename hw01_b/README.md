@@ -14,7 +14,7 @@ The methods were executed to [refine/improve (re-grid) the Actueel Hoogtebestand
 We execute this in a local context ~ LiDAR available upon request from [City of Cape Town](https://www.capetown.gov.za/). geopackage of the area-of-interest available [here](https://github.com/AdrianKriger/terrain101/tree/main/hw01_b/aoi) to reproduce the result. 
 Input a classified LiDAR dataset (1 and 2 minumum); which is cropped (line 68 of [code_AHN3_local.py](https://github.com/AdrianKriger/terrain101/blob/main/hw01_b/code_AHN3_local.py) - see [CoCT_cput.ipynb](https://github.com/AdrianKriger/terrain101/blob/main/hw01_b/CoCT_cput.ipynb) to choose an extent) with basic outlier and noise detection.
 
-Set parameters [with](https://github.com/AdrianKriger/terrain101/blob/main/hw01_b/params_local.json). Execute [with](https://github.com/AdrianKriger/terrain101/blob/main/hw01_b/geoAHN3_local.py). 
+Set parameters [with](https://github.com/AdrianKriger/terrain101/blob/main/hw01_b/params_local.json). Execute [with](https://github.com/AdrianKriger/terrain101/blob/main/hw01_b/geoAHN3_local.py).  
 Building outlines were added as contraints for the CGAL-Constrained Delaunay. To test the basic_flattening of waterbodies a wetland in the vicinity was harvested. 
 building outlines available [here](https://odp-cctegis.opendata.arcgis.com/datasets/4a542172a2cc430898a5e635d688eee3_86/explore). The PenTech_feature from the stormwater dataset available [here](https://odp-cctegis.opendata.arcgis.com/datasets/74fa0c08ca43494d9b92b1431205bfd7_71/explore). 
 
