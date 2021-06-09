@@ -4,8 +4,8 @@ Given an aerial point cloud; find the best interpolation technique to generate b
 Procedures include:
 - idwPDAL (built-in [pdal writers.gdal](https://pdal.io/stages/writers.gdal.html) Inverse Distance Weighting (idw);
 - idwQUAD (home-baked quadrant-based k-nearest neighbor);
-- tinLinear (Delaunay-based Linear interpolation);
-- tinLaplace (Delaunay-based Laplace interpolation);
+- tinLinear (Delaunay-based Linear ([startin](https://github.com/hugoledoux/startinpy)) interpolation);
+- tinLaplace (Delaunay-based Laplace ([startin](https://github.com/hugoledoux/startinpy)) interpolation);
 - tinNN ([CGAL-Delaunay-based](https://doc.cgal.org/latest/Triangulation_2/index.html) [natural_neighbor interpolation](https://doc.cgal.org/latest/Interpolation/group__PkgInterpolation2NatNeighbor.html));
 - tinCnst ([CGAL-Constrained Delaunay](https://doc.cgal.org/latest/Triangulation_2/index.html#title23) with Linear interpolation).
 
