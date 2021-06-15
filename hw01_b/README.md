@@ -22,7 +22,7 @@ building outlines available [here](https://odp-cctegis.opendata.arcgis.com/datas
 
 [vertical_diff_local.py](https://github.com/AdrianKriger/terrain101/blob/main/hw01_b/vertical_diff_local.py) will perform a mean-average-error calculation. Unfortunately this has to be executed iteratively. First one then the other (iether dtm/dsm). The code is clunky. I am sorry.  
 Consult [CoCT_cput.ipynb](https://github.com/AdrianKriger/terrain101/blob/main/hw01_b/CoCT_cput.ipynb) for a look at the result. 
-[fancyPlotter.py](https://github.com/AdrianKriger/terrain101/blob/main/hw01_b/fancyPlotter.py) to visualize (as below).
+[fancyPlotter.py](https://github.com/AdrianKriger/terrain101/blob/main/hw01_b/fancyPlotter.py) to visualize - via [PyVista](https://docs.pyvista.org/) - (as below).
 
 ![Alt text](https://github.com/AdrianKriger/terrain101/blob/main/hw01_b/hw01_b_DtmDsm.gif)
 
