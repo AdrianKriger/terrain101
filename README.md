@@ -5,4 +5,6 @@ Experiments in the computation and representation of terrain
 - hw01_a: interpolation techniques (Kd-tree Nearest neighbor, Kd-tree Inverse distance weighting (idw), Delaunay ~ Triangulated Irregular Network (tin) and Kriging (GaussianProcessRegression))
 - hw01_b: AHN3 interpolation techniques
 - hw02_a: terrain simplification
-- hw03: ground filtering with dtm and dsm interpolation (idw and tin)
+- hw03: ground filtering with dtm and dsm interpolation (idw and tin)  
+
+- ch06: Topographic features
