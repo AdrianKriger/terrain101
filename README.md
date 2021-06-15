@@ -7,5 +7,6 @@ Experiments in the computation and representation of terrain
 - hw02_a: terrain simplification;
 - hw03: ground filtering with dtm and dsm interpolation (idw and tin).
 
+
 Additional:
 - ch06: topographic features
