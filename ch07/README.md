@@ -24,7 +24,7 @@ c) MFD is default.
 #set r.watershed to produce three ouput. direction, accumulation and basins
 `r.watershed elevation=tasmania_dtm@tasmania threshold=10000 accumulation=accum_mfd10k drainage=draindir_mfd10k basin=basin_mfd10k`  
 
-|![alt](https://github.com/AdrianKriger/terrain101/blob/main/ch07/draindir_mfd10.png) |![alt](https://github.com/AdrianKriger/terrain101/blob/main/ch07/accum_mfd10k.png)||![alt](https://github.com/AdrianKriger/terrain101/blob/main/ch07/basin_mfd10k.pn)
+|![alt](https://github.com/AdrianKriger/terrain101/blob/main/ch07/draindir_mfd10.png)|![alt](https://github.com/AdrianKriger/terrain101/blob/main/ch07/accum_mfd10k.png)|![alt](https://github.com/AdrianKriger/terrain101/blob/main/ch07/basin_mfd10k.png)|
 
 ![Alt text](https://github.com/AdrianKriger/terrain101/blob/main/ch07/draindir_mfd10.png=250x) ![Alt text](https://github.com/AdrianKriger/terrain101/blob/main/ch07/accum_mfd10k.png =250x) ![Alt text](https://github.com/AdrianKriger/terrain101/blob/main/ch07/basin_mfd10k.png =250x)
 
