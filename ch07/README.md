@@ -24,13 +24,8 @@ c) MFD is default.
 #set r.watershed to produce three ouput. direction, accumulation and basins
 `r.watershed elevation=tasmania_dtm@tasmania threshold=10000 accumulation=accum_mfd10k drainage=draindir_mfd10k basin=basin_mfd10k`  
 
-|![alt](https://github.com/AdrianKriger/terrain101/blob/main/ch07/draindir_mfd10.png | width=100)|![alt](https://github.com/AdrianKriger/terrain101/blob/main/ch07/accum_mfd10k.png | width=100)|![alt](https://github.com/AdrianKriger/terrain101/blob/main/ch07/basin_mfd10k.png | width=100)|
-
-![Alt text](https://github.com/AdrianKriger/terrain101/blob/main/ch07/draindir_mfd10.png=250x) ![Alt text](https://github.com/AdrianKriger/terrain101/blob/main/ch07/accum_mfd10k.png =250x) ![Alt text](https://github.com/AdrianKriger/terrain101/blob/main/ch07/basin_mfd10k.png =250x)
-
 #do the same for SFD
 `r.watershed -s elevation=tasmania_dtm@tasmania threshold=10000 accumulation=accum_sfd10k drainage=drain_sfd10k basin=basin_sfd10k`
-![draindir_sfd10]( =250x) ![basin_sfd10k]( =250x)
 
 #`r.flow` can provide complementary datsets. `r.flow` uses a single flow algorithm i.e. all flow is transported to a single cell downslope. 
 `r.flow elevation=tasmania_dtm@tasmania flowline=flowline flowlength=flowLength_30m flowaccumulation=flowAcc_30m`
@@ -42,8 +37,5 @@ c) MFD is default.
 #and convert to vector
 `r.to.vect -s input=streams_mfd_t@tasmania output=streams_mfd_t type=line`
 
-
 #The HAND model represents the differences in elevation between each grid cell / pixel and the elevations of the flowpath-connected downslope where the flow enters the channel. It is the elevation difference between the cell and the stream where the cell drains. HAND gives a good indication of where inundation will occur.
 `r.stream.distance stream_rast=streams_mfd_t direction=draindir_mfd10k elevation=tasmania_dtm method=downstream difference=above_stream`
-
-![above_streams]( =250x)
