@@ -30,7 +30,7 @@ c) MFD is default.
 #r.flow can provide complementary datsets. r.flow uses a single flow algorithm i.e. all flow is transported to a single cell downslope.  
 `r.flow elevation=tasmania_dtm@tasmania flowline=flowline flowlength=flowLength_30m flowaccumulation=flowAcc_30m`
 
-#you'll notice that although `r.watershed` provides an option to output streams; we did not. We extract streams from the accumulation based on values `> 100`.  
+#you'll notice that although r.watershed provides an option to output streams; we did not. We extract streams from the accumulation based on values > 100.  
 `r.mapcalc "streams_mfd = if(abs(accum_mfd10K) > 100, 1, null())"`  
 #the stream raster usually requires thinning  
 `r.thin input=streams_mfd@tasmania output=streams_mfd_t`  
