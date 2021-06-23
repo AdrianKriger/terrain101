@@ -31,7 +31,7 @@ c) MFD is default.
 
 <img src="https://github.com/AdrianKriger/terrain101/blob/main/ch07/draindir_sfd10.png" width="200"/> <img src="https://github.com/AdrianKriger/terrain101/blob/main/ch07/accum_sfd10k.png" width="200"/> <img src="https://github.com/AdrianKriger/terrain101/blob/main/ch07/basin_sfd10k.png" width="200"/>
 
-#[r.flow](https://grass.osgeo.org/grass79/manuals/r.flow.html) can provide complimentary datsets. r.flow uses a single flow algorithm i.e. all flow is transported to a single cell downslope and should be used with a conditioned elevation.
+#[r.flow](https://grass.osgeo.org/grass79/manuals/r.flow.html) can provide complimentary datsets. r.flow uses a single flow algorithm i.e. all flow is transported to a single cell downslope and should be used with a conditioned elevation.  
 `r.flow elevation=tasmania_dtm@tasmania flowline=flowline flowlength=flowLength_30m flowaccumulation=flowAcc_30m`
 
 #you'll notice that although r.watershed provides an option to output streams; we did not. We extract streams from the MFD accumulation based on values > 100.  
