@@ -27,7 +27,7 @@ c) MFD is default.
 #do the same for SFD  
 `r.watershed -s elevation=tasmania_dtm@tasmania threshold=10000 accumulation=accum_sfd10k drainage=drain_sfd10k basin=basin_sfd10k`
 
-#`r.flow` can provide complementary datsets. `r.flow` uses a single flow algorithm i.e. all flow is transported to a single cell downslope.  
+#r.flow can provide complementary datsets. `r.flow` uses a single flow algorithm i.e. all flow is transported to a single cell downslope.  
 `r.flow elevation=tasmania_dtm@tasmania flowline=flowline flowlength=flowLength_30m flowaccumulation=flowAcc_30m`
 
 #you'll notice that although `r.watershed` provides an option to output streams; we did not. We extract streams from the accumulation based on values `> 100`.  
