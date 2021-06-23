@@ -23,11 +23,11 @@ c) MFD is default.
 
 #set r.watershed to produce three ouput. direction, accumulation and basins
 `r.watershed elevation=tasmania_dtm@tasmania threshold=10000 accumulation=accum_mfd10k drainage=draindir_mfd10k basin=basin_mfd10k`
-![draindir_mfd10](https://user-images.githubusercontent.com/59996720/123134381-01a59380-d451-11eb-92cc-4859fe3416dd.png =250x) ![accum_mfd10k](https://user-images.githubusercontent.com/59996720/123134481-1c780800-d451-11eb-9241-7abb352842d0.png =250x) ![basin_mfd10k](https://user-images.githubusercontent.com/59996720/123134508-239f1600-d451-11eb-850d-275404e3e468.png =250x)
+![draindir_mfd10]( =250x) ![basin_mfd10k]( =250x)
 
 #do the same for SFD
 `r.watershed -s elevation=tasmania_dtm@tasmania threshold=10000 accumulation=accum_sfd10k drainage=drain_sfd10k basin=basin_sfd10k`
-![draindir_sfd10](https://user-images.githubusercontent.com/59996720/123134747-66f98480-d451-11eb-9975-57d2f8224626.png =250x) ![accum_sfd10k](https://user-images.githubusercontent.com/59996720/123134801-737ddd00-d451-11eb-8628-a828414bc864.png =250x) ![basin_sfd10k](https://user-images.githubusercontent.com/59996720/123134945-94463280-d451-11eb-9439-0ccc26ef6814.png =250x)
+![draindir_sfd10]( =250x) ![basin_sfd10k]( =250x)
 
 #`r.flow` can provide complementary datsets. `r.flow` uses a single flow algorithm i.e. all flow is transported to a single cell downslope. 
 `r.flow elevation=tasmania_dtm@tasmania flowline=flowline flowlength=flowLength_30m flowaccumulation=flowAcc_30m`
@@ -43,4 +43,4 @@ c) MFD is default.
 #The HAND model represents the differences in elevation between each grid cell / pixel and the elevations of the flowpath-connected downslope where the flow enters the channel. It is the elevation difference between the cell and the stream where the cell drains. HAND gives a good indication of where inundation will occur.
 `r.stream.distance stream_rast=streams_mfd_t direction=draindir_mfd10k elevation=tasmania_dtm method=downstream difference=above_stream`
 
-![above_streams](https://user-images.githubusercontent.com/59996720/123136978-cf496580-d453-11eb-84df-0f868a6efd9e.png =250x)
+![above_streams]( =250x)
