@@ -16,9 +16,10 @@ location for [example data](https://3d.bk.tudelft.nl/courses/backup/geo1015/2019
 `r.in.gdal input=C:\{path}\tasmania.tif output=tasmania_dtm`
 `g.region raster=tasmania_dtm@tasmania`
  
-## a) ~ [`r.watershed`](https://grass.osgeo.org/grass78/manuals/r.watershed.html) uses A<sup>T</sup> least-cost routing algorithm; sink filling is not recommended.
-## b) ~ `threshold value` is the number of cells that will be the minimum catchment size. If the resolution of the dem raster is, for example, 10x10 meters (each cell=100 sq. meters), then a threshold of 20,000 (=2,000,000 sq. meters) would create catchments of at least 2 sq. kilometers. - with a 30-m resolution raster if our threshold is 10,000 the catchments will be at least 9 sq.km.
-## c) ~ MFD is default.
+ Note:
+a) [`r.watershed`](https://grass.osgeo.org/grass78/manuals/r.watershed.html) uses A<sup>T</sup> least-cost routing algorithm; sink filling is not recommended.
+b) `threshold value` is the number of cells that will be the minimum catchment size. If the resolution of the dem raster is, for example, 10x10 meters (each cell=100 sq. meters), then a threshold of 20,000 (=2,000,000 sq. meters) would create catchments of at least 2 sq. kilometers. - with a 30-m resolution raster if our threshold is 10,000 the catchments will be at least 9 sq.km.
+c) MFD is default.
 
 # set r.watershed to produce three ouput. direction, accumulation and basins
 `r.watershed elevation=tasmania_dtm@tasmania threshold=10000 accumulation=accum_mfd10k drainage=draindir_mfd10k basin=basin_mfd10k`
@@ -39,7 +40,7 @@ location for [example data](https://3d.bk.tudelft.nl/courses/backup/geo1015/2019
 `r.to.vect -s input=streams_mfd_t@tasmania output=streams_mfd_t type=line`
 
 
-## the HAND model represents the differences in elevation between each grid cell / pixel and the elevations of the flowpath-connected downslope where the flow enters the channel. It is the elevation difference between the cell and the stream where the cell drains. HAND gives a good indication of where inundation will occur.
+# The HAND model represents the differences in elevation between each grid cell / pixel and the elevations of the flowpath-connected downslope where the flow enters the channel. It is the elevation difference between the cell and the stream where the cell drains. HAND gives a good indication of where inundation will occur.
 `r.stream.distance stream_rast=streams_mfd_t direction=draindir_mfd10k elevation=tasmania_dtm method=downstream difference=above_stream`
 
 ![above_streams](https://user-images.githubusercontent.com/59996720/123136978-cf496580-d453-11eb-84df-0f868a6efd9e.png =250x)
