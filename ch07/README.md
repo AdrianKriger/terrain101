@@ -1,6 +1,6 @@
 **Runoff modelling.**
 
-Given a Digital Terrian Model (dtm) perform *first-order* runoff modelling; that is:
+Given a Digital Terrain Model (dtm) perform *first-order* runoff modelling; that is:
 1) calculate both Single and Multiple flow directions (SFD and MFD); and
 2) their respective accumulation.
 3) extract a drainage network and watersheds (basins).
