@@ -22,7 +22,9 @@ b) `threshold value` is the number of cells that will be the minimum catchment s
 c) MFD is default.
 
 #set r.watershed to produce three ouput. direction, accumulation and basins  
-`r.watershed elevation=tasmania_dtm@tasmania threshold=10000 accumulation=accum_mfd10k drainage=draindir_mfd10k basin=basin_mfd10k`  
+`r.watershed elevation=tasmania_dtm@tasmania threshold=10000 accumulation=accum_mfd10k drainage=draindir_mfd10k basin=basin_mfd10k` 
+
+<img src="https://github.com/AdrianKriger/terrain101/blob/main/ch07/draindir_mfd10.png" width="200"/> <img src="https://github.com/AdrianKriger/terrain101/blob/main/ch07/accum_mfd10k.png" width="200"/> <img src="https://github.com/AdrianKriger/terrain101/blob/main/ch07/basin_mfd10k.png" width="200"/>
 
 #do the same for SFD  
 `r.watershed -s elevation=tasmania_dtm@tasmania threshold=10000 accumulation=accum_sfd10k drainage=drain_sfd10k basin=basin_sfd10k`
