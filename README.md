@@ -9,4 +9,5 @@ Experiments in the computation and representation of terrain
 
 
 Additional:
-- ch06: topographic features
+- ch06: topographic features  
+- ch07: runoff modelling
