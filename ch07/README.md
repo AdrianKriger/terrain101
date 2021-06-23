@@ -29,6 +29,8 @@ c) MFD is default.
 #do the same for SFD  
 `r.watershed -s elevation=tasmania_dtm@tasmania threshold=10000 accumulation=accum_sfd10k drainage=drain_sfd10k basin=basin_sfd10k`
 
+<img src="https://github.com/AdrianKriger/terrain101/blob/main/ch07/draindir_sfd10.png" width="200"/> <img src="https://github.com/AdrianKriger/terrain101/blob/main/ch07/accum_sfd10k.png" width="200"/> <img src="https://github.com/AdrianKriger/terrain101/blob/main/ch07/basin_sfd10k.png" width="200"/>
+
 #r.flow can provide complementary datsets. r.flow uses a single flow algorithm i.e. all flow is transported to a single cell downslope.  
 `r.flow elevation=tasmania_dtm@tasmania flowline=flowline flowlength=flowLength_30m flowaccumulation=flowAcc_30m`
 
@@ -39,5 +41,9 @@ c) MFD is default.
 #and convert to vector  
 `r.to.vect -s input=streams_mfd_t@tasmania output=streams_mfd_t type=line`
 
+<img src="https://github.com/AdrianKriger/terrain101/blob/main/ch07/streams_mfd_t.png" width="200"/>
+
 #The HAND model represents the differences in elevation between each grid cell / pixel and the elevations of the flowpath-connected downslope where the flow enters the channel. It is the elevation difference between the cell and the stream where the cell drains. HAND gives a good indication of where inundation will occur.  
 `r.stream.distance stream_rast=streams_mfd_t direction=draindir_mfd10k elevation=tasmania_dtm method=downstream difference=above_stream`.
+
+<img src="https://github.com/AdrianKriger/terrain101/blob/main/ch07/above_streams.png" width="200"/>
