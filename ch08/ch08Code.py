@@ -96,7 +96,7 @@ def writegjson(ts, fname):
 
 def getXYZ(dis, buffer, filen):
     """
-    read xyz to df
+    read xyz to gdf
     """
     df = pd.read_csv(filen, 
                  #"./data/rasterEle_holes.xyz", 
@@ -274,7 +274,7 @@ def appendCoords(gdf, ac):
 def createSgmts(ac, c, gdf, idx):
     """
     create a segment list for Triangle
-    - indices of points [from, to]
+    - indices of vertices [from, to]
     """
     
     l = len(gdf) #- 1
@@ -292,13 +292,14 @@ def createSgmts(ac, c, gdf, idx):
 def executeDelaunay(hs, df3, idx):
     """
     perform Triangle ~ constrained Delaunay with concavitities removed
+    - return the simplices: indices of vertices that create the triangles
     """      
     holes = hs[['x', 'y']].round(3).values.tolist()
     pts = df3[['x', 'y']].values #, 'z']].values
         
     A = dict(vertices=pts, segments=idx, holes=holes)
     Tr = tr.triangulate(A, 'pVV')  # the VV will print stats in the cmd
-    t = Tr.get('triangles')
+    t = Tr.get('triangles').tolist()
     
     # matplotlib for basic plot
     plt.figure(figsize=(8, 8))
@@ -312,7 +313,6 @@ def pvPlot(t, pv_pts, idx, hs):
     """
     3D plot with PyVista
     """
-    
     l = np.vstack(idx)
     l = l.reshape([-1, 2])
     twos = np.array([[2]] * len(idx))
