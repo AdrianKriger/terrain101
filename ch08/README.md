@@ -3,9 +3,9 @@
 Transform a raster Digital Terrain Model (dtm) to a Triangulated Irregular Network (tin).  
 
 To add a level of complexity;  
-    a) Given a set of vector polygons (building footprints and an area of interest) - from [OpenStreetMap](https://wiki.osmfoundation.org/wiki/Main_Page) - perform a  
+    a) Given a set of vector polygons (building footprints and an area of interest) - from [OpenStreetMap](https://wiki.osmfoundation.org/wiki/Main_Page) (osm) - perform a  
        Constrained Delaunay triangulation where the buildings are removed from the terrain;  
-    b) Do no reduce the quality of the raster (don't cut holes in the dtm); assign a height to the vector - add value to the osm data through new attributes: namely 
+    b) Do not reduce the quality of the raster (don't cut holes in the dtm); assign a height to the vector - add value to the osm data through new attributes: namely 
        height of ground;  
     c) Output the result to:  
 &nbsp;&nbsp;&nbsp;&nbsp;- wavefront.obj; and  
