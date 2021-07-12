@@ -9,5 +9,6 @@ Experiments in the computation and representation of terrain
 
 
 Additional:
-- ch06: topographic features  
-- ch07: runoff modelling
+- ch06: topographic features;  
+- ch07: runoff modelling;
+- ch08: representation conversions (raster with vector to constrained delaunay (tin)).
