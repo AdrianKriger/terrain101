@@ -11,7 +11,7 @@ To add a level of complexity;
 &nbsp;&nbsp;&nbsp;&nbsp;- wavefront.obj; and  
 &nbsp;&nbsp;&nbsp;&nbsp;- Level of Detail 1 (LoD1) 3D cityjson *[this does not execute correctly]*.
                       
- ch08Main will execute ch08Code. 
+ [ch08Main](https://github.com/AdrianKriger/terrain101/blob/main/ch08/ch08Main.py) will execute [ch08Code](https://github.com/AdrianKriger/terrain101/blob/main/ch08/ch08Code.py). 
  
  *for reproducibility:*
  - A portion of LO19_050M_3318DC is available (original [here](http://www.ngi.gov.za/index.php/online-shop/what-is-itis-portal));
