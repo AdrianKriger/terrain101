@@ -16,7 +16,7 @@ To add a level of complexity;
  *for reproducibility:*
  - A portion of [National Geo-spatial Information's](http://www.ngi.gov.za/) LO19_050M_3318DC raster DTM is available (original [here](http://www.ngi.gov.za/index.php/online-shop/what-is-itis-portal));
  - osm vector via [these queries](https://github.com/AdrianKriger/osm_LoD1_3Dbuildings/blob/main/osm_lod1_3dbuildingmodel_cput.ipynb);
- - both reprojected to `espg:32733`. [gdal.vectorTranslate and gdal.Warp](https://gdal.org/python/osgeo.gdal-module.html#VectorTranslateOptions) comes in handy.
+ - both reprojected to `espg:32733`. [gdal.VectorTranslate and gdal.Warp](https://gdal.org/python/osgeo.gdal-module.html#VectorTranslateOptions) comes in handy.
 
 Constrained Delaunay via [python bindings](https://rufat.be/triangle/) of Shewchuck's; [Triangle](http://www.cs.cmu.edu/~quake/triangle.html).  
 builtin [pvPlot](https://github.com/AdrianKriger/terrain101/blob/main/ch08/ch08Code.py#L299) to visualize via [PyVista](https://docs.pyvista.org/) - after the triangulation but before c).
