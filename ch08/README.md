@@ -9,7 +9,7 @@ To add a level of complexity;
        height of ground;  
     c) Output the result to:  
 &nbsp;&nbsp;&nbsp;&nbsp;- wavefront.obj; and  
-&nbsp;&nbsp;&nbsp;&nbsp;- Level of Detail 1 (LoD1) 3D City Model (cityjson) *[this does not execute correctly]*.
+&nbsp;&nbsp;&nbsp;&nbsp;- Level of Detail 1 (LoD1) 3D City Model (cityjson) ***[this does not execute correctly]***.
                       
  [ch08Main](https://github.com/AdrianKriger/terrain101/blob/main/ch08/ch08Main.py) will execute [ch08Code](https://github.com/AdrianKriger/terrain101/blob/main/ch08/ch08Code.py). 
  
