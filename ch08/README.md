@@ -17,4 +17,3 @@ To add a level of complexity;
  - A portion of LO19_050M_3318DC is available (original [here](http://www.ngi.gov.za/index.php/online-shop/what-is-itis-portal));
  - osm vector via [these queries](https://github.com/AdrianKriger/osm_LoD1_3Dbuildings/blob/main/osm_lod1_3dbuildingmodel_cput.ipynb);
  - both reprojected to `espg:32733`. [gdal.vectorTranslate and gdal.Warp](https://gdal.org/python/osgeo.gdal-module.html#VectorTranslateOptions) comes in handy.
-       
