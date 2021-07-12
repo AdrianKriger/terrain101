@@ -8,7 +8,7 @@ To add a level of complexity;
     b) Do no reduce the quality of the raster (don't cut holes in the dtm); assign a height to the vector - add value to the osm data through new attributes: namely 
        height of ground;  
     c) Output the result to:  
-            - wavefront.obj; and  
+&nbsp;&nbsp;&nbsp;&nbsp wavefront.obj; and  
 >>>>- Level of Detail 1 (LoD1) 3D cityjson *[this does not execute correctly]*.
                       
  ch08Main will execute ch08Code
