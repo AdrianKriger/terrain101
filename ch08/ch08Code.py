@@ -35,7 +35,7 @@ def createXYZ(fout, fin):
 
 def assignZ(vfname, rfname):
     """
-    assign a height attribute to the osm vector 
+    assign a height attribute - mean ground - to the osm vector 
     ~ .representative_point() used instead of .centroid
     """
     ts = gpd.read_file(vfname)
@@ -119,7 +119,8 @@ def getXYZ(dis, buffer, filen):
 def getosmBld(filen):
     """
     read osm buildings to gdf, extract the representative_point() for each polygon
-    and create a basic xyz_df ~ subtract a constant from the values
+    and create a basic xyz_df;
+    - reduce the precision of the holes
     """
     dis = gpd.read_file(filen)
     dis.set_crs(epsg=32733, inplace=True, allow_override=True)
@@ -147,6 +148,7 @@ def getosmBld(filen):
 def getosmArea(filen):
     """
     read osm area to gdf and buffer
+    - get the extent for the cityjson
     """
     aoi = gpd.read_file(filen)
     buffer = gpd.GeoDataFrame(aoi, geometry = aoi.geometry)
@@ -160,6 +162,7 @@ def getosmArea(filen):
 def getBldVertices(dis):
     """
     retrieve vertices from building footprints ~ without duplicates 
+    - these vertices already have a z attribute
     """
     all_coords = []
     dps = 2
@@ -209,6 +212,10 @@ def getBldVertices(dis):
     return ac, c
 
 def getAOIVertices(buffer, fname):
+    """
+    retrieve vertices from aoi ~ without duplicates 
+    - these vertices are assigned a z attribute
+    """
     aoi_coords = []
     dps = 2
     segs = {}
@@ -265,6 +272,10 @@ def appendCoords(gdf, ac):
     return df2
 
 def createSgmts(ac, c, gdf, idx):
+    """
+    create a segment list for Triangle
+    - indices of points [from, to]
+    """
     
     l = len(gdf) #- 1
     
@@ -286,9 +297,10 @@ def executeDelaunay(hs, df3, idx):
     pts = df3[['x', 'y']].values #, 'z']].values
         
     A = dict(vertices=pts, segments=idx, holes=holes)
-    Tr = tr.triangulate(A, 'pVV')  # the VV will print a stats in the cmd
+    Tr = tr.triangulate(A, 'pVV')  # the VV will print stats in the cmd
     t = Tr.get('triangles')
     
+    # matplotlib for basic plot
     plt.figure(figsize=(8, 8))
     ax = plt.subplot(111, aspect='equal')
     tr.plot(ax, **Tr)
