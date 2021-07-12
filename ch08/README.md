@@ -7,8 +7,8 @@ To add a level of complexity;
        Constrained Delaunay triangulation where the buildings are removed from the terrain;  
     b) Do no reduce the quality of the raster (don't cut holes in the dtm); assign a height to the vector - add value to the osm data through new attributes: namely 
        height of ground;  
-    c) Output the result to:
-          i)  wavefront.obj; and
+    c) Output the result to:  
+          i)  wavefront.obj; and  
           ii) Level of Detail 1 (LoD1) 3D cityjson.
                       
  ch08Main will execute ch08Code
