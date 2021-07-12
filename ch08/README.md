@@ -1,6 +1,6 @@
 **Conversion between terrain representations.**
 
-Transform a raster Digital Terrain Model (dtm) to a Trianguated Irregular Network (tin).  
+Transform a raster Digital Terrain Model (dtm) to a Triangulated Irregular Network (tin).  
 
 To add a level of complexity;  
     a) Given a set of vector polygons (building footprints and an area of interest) - from [OpenStreetMap](https://wiki.osmfoundation.org/wiki/Main_Page) - perform  
