@@ -414,7 +414,7 @@ def add_terrain_v(pts, cm):
     
 def add_terrain_b(T, allsurfaces):
     for i in T:
-        allsurfaces.append([i[0], i[1], i[2]])
+        allsurfaces.append([i[0]+1, i[1]+1, i[2]+1])
     
     
     
