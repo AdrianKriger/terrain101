@@ -24,6 +24,9 @@ import triangle as tr
 
 import matplotlib.pyplot as plt
 
+#def requestOsmBld():
+    
+
 def createXYZ(fout, fin):
     """
     read raster and extract a xyz
@@ -405,12 +408,13 @@ def output_citysjon(extent, minz, maxz, T, pts):
     return cm
 
 def add_terrain_v(pts, cm):
+    #cm['vertices'] = pts
     for p in pts:
-        cm['vertices'].append([[p[0], p[1], p[2]]])
+        cm['vertices'].append([p[0], p[1], p[2]])
     
 def add_terrain_b(T, allsurfaces):
     for i in T:
-        allsurfaces.append([i[0] + 1, i[1] + 1, i[2] + 1])
+        allsurfaces.append([i[0], i[1], i[2]])
     
     
     
