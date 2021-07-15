@@ -11,8 +11,11 @@ from itertools import chain
 import numpy as np
 import pandas as pd
 import geopandas as gpd
-from shapely.geometry import Point, LineString, Polygon, shape, mapping
+#from shapely.geometry import Point, LineString, Polygon, shape, mapping
 from shapely.ops import snap
+import shapely.geometry as sg
+import fiona
+import copy
 import json
 import geojson
 
@@ -24,8 +27,7 @@ import triangle as tr
 
 import matplotlib.pyplot as plt
 
-#def requestOsmBld():
-    
+from cjio import cityjson   
 
 def createXYZ(fout, fin):
     """
@@ -74,18 +76,18 @@ def writegjson(ts, fname):
             #-- store all OSM attributes and prefix them with osm_          
             f["properties"]["osm_id"] = row.id
             f["properties"]["osm_tags"] = row.tags
-            osm_shape = shape(row["geometry"])
+            osm_shape = sg.shape(row["geometry"])
                 #-- a few buildings are not polygons, rather linestrings. This converts them to polygons
                 #-- rare, but if not done it breaks the code later
             if osm_shape.type == 'LineString':
-                osm_shape = Polygon(osm_shape)
+                osm_shape = sg.Polygon(osm_shape)
                 #-- and multipolygons must be accounted for
             elif osm_shape.type == 'MultiPolygon':
                 #osm_shape = Polygon(osm_shape[0])
                 for poly in osm_shape:
-                    osm_shape = Polygon(poly)#[0])
+                    osm_shape = sg.Polygon(poly)#[0])
                     #-- convert the shapely object to geojson
-            f["geometry"] = mapping(osm_shape)
+            f["geometry"] = sg.mapping(osm_shape)
     
             #-- finally calculate the height and store it as an attribute
             f["properties"]['g_height'] = row["mean"]
@@ -106,7 +108,7 @@ def getXYZ(dis, buffer, filen):
                  delimiter = ' ', header=None,
                  names=["x", "y", "z"])
     
-    geometry = [Point(xy) for xy in zip(df.x, df.y)]
+    geometry = [sg.Point(xy) for xy in zip(df.x, df.y)]
     #df = df.drop(['Lon', 'Lat'], axis=1)
     gdf = gpd.GeoDataFrame(df, crs="EPSG:32733", geometry=geometry)
     
@@ -127,24 +129,26 @@ def getosmBld(filen):
     """
     dis = gpd.read_file(filen)
     dis.set_crs(epsg=32733, inplace=True, allow_override=True)
-    dis = dis[dis.osm_id != 904207929] # need to exclude one building
      
-    # remove duplicate vertices within tolerance 0.5 
+    # remove duplicate vertices within tolerance 0.2 
     for index, row in dis.iterrows():
         tmp_gdf = dis.copy()
         tmp_gdf['distance'] = tmp_gdf.distance(row['geometry'])
         closest_geom = list(tmp_gdf.sort_values('distance')['geometry'])[1]
         # I took 1 because index 0 would be the row itself
-        snapped_geom = snap(row['geometry'], closest_geom, 0.5)
+        snapped_geom = snap(row['geometry'], closest_geom, 0.2)
         dis.loc[index, 'geometry'] = snapped_geom
-        
+     
+    dis.to_file(filen, driver='GeoJSON') 
+    dis = dis[dis.osm_id != 904207929] # need to exclude one building
+     
     # create a point representing the hole within each building  
     dis['x'] = dis.representative_point().x
     dis['y'] = dis.representative_point().y
     hs = dis[['x', 'y', 'g_height']].copy()#.values.tolist()
     # subtract constant so the values are less
-    hs["x"] = hs["x"].subtract(836000)
-    hs["y"] = hs["y"].subtract(6230000)
+    #hs["x"] = hs["x"].subtract(836000)
+    #hs["y"] = hs["y"].subtract(6230000)
     
     return dis, hs
 
@@ -229,7 +233,7 @@ def getAOIVertices(buffer, fname):
         coords_rounded = []
         po = []
         for x, y in oring:
-            [z] = point_query(Point(x, y), raster=fname)
+            [z] = point_query(sg.Point(x, y), raster=fname)
             rounded_x = round(x, dps)
             rounded_y = round(y, dps)
             rounded_z = round(z, dps)
@@ -354,10 +358,23 @@ def writeObj(pts, dt, obj_filename):
                                           simplex[2] + 1))
     f_out.close()
     
-def output_citysjon(extent, minz, maxz, T, pts):
+def output_citysjon(extent, minz, maxz, T, pts, outfname):
     """
     basic function to produce LoD1 cityjson terrain
-    """
+    """     
+    cm = doVcBndGeom(extent, minz, maxz, T, pts)    
+    json_str = json.dumps(cm, indent=2)
+    fout = open(outfname, "w")
+    fout.write(json_str)  
+    
+    #up = 'cjio {0} upgrade_version save {1}'.format(outfname,
+                                                     #'citjsnV1_cput3d.json')
+    #os.system(up)
+
+    #val = 'cjio citjsnV1_cput3d.json validate'
+    #os.system(val)
+
+def doVcBndGeom(extent, minz, maxz, T, pts): 
     #-- create the JSON data structure for the City Model
     cm = {}
     cm["type"] = "CityJSON"
@@ -387,19 +404,19 @@ def output_citysjon(extent, minz, maxz, T, pts):
     "metadataStandard": "ISO 19115 - Geographic Information - Metadata",
     "metadataStandardVersion": "ISO 19115:2014(E)"
     }
-    
+      ##-- do terrain
     add_terrain_v(pts, cm)
     grd = {}
     grd['type'] = 'TINRelief'
     grd['geometry'] = [] #-- a cityobject can have >1 
-     #-- the geometry
+      #-- the geometry
     g = {} 
     g['type'] = 'CompositeSurface'
     g['lod'] = 1
     allsurfaces = [] #-- list of surfaces
     add_terrain_b(T, allsurfaces)
-    g['boundaries'] = []
-    g['boundaries'].append(allsurfaces)
+    g['boundaries'] = allsurfaces
+    #g['boundaries'].append(allsurfaces)
       #-- add the geom 
     grd['geometry'].append(g)
       #-- insert the terrain as one new city object
@@ -414,9 +431,12 @@ def add_terrain_v(pts, cm):
     
 def add_terrain_b(T, allsurfaces):
     for i in T:
-        allsurfaces.append([i[0]+1, i[1]+1, i[2]+1])
+        allsurfaces.append([[i[0], i[1], i[2]]])
     
-    
-    
-    
-    
+def upgrade_cjio(infile, outfile):
+    """
+    upgrade CityJSON
+    """   
+    cm = cityjson.load(infile)
+    cm.upgrade_version("1.0")
+    cityjson.save(cm, outfile)

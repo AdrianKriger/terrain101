@@ -34,8 +34,8 @@ def main():
     #df3 = df2.append(acoi, ignore_index=True)
     df3 = appendCoords(df2, acoi)
     # reduce precision
-    df3["x"] = df3["x"].subtract(836000)
-    df3["y"] = df3["y"].subtract(6230000)
+    #df3["x"] = df3["x"].subtract(836000)
+    #df3["y"] = df3["y"].subtract(6230000)
     pts = df3[['x', 'y', 'z']].values
 
     t = executeDelaunay(hs, df3, idx)
@@ -44,17 +44,18 @@ def main():
     pvPlot(t, pts, idx, hs)
     
     # replace precision and some other operations
-    df3["x"] = df3["x"].add(836000)
-    df3["y"] = df3["y"].add(6230000)
-    pts = df3[['x', 'y', 'z']].values
+    #df3["x"] = df3["x"].add(836000)
+    #df3["y"] = df3["y"].add(6230000)
+    #pts = df3[['x', 'y', 'z']].values
     minz = df3['z'].min()
     maxz = df3['z'].max()
     
     writeObj(pts, t, 'wvft_cput3d.obj')
-    cm = output_citysjon(extent, minz, maxz, t, pts)
-    json_str = json.dumps(cm, indent=2)
-    fout = open("citjsn_cput3d.json", "w")
-    fout.write(json_str)
+    output_citysjon(extent, minz, maxz, t, pts, 'citjsn_cput3d.json')
     
+    upgrade_cjio('citjsn_cput3d.json', 'citjsnV1_cput3d.json')
+    
+    
+  
 if __name__ == "__main__":
     main()
