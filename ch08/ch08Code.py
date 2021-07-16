@@ -207,6 +207,39 @@ def getBldVertices(dis):
                         segs[key] = 1
                     else:
                         segs[key] += 1
+        
+         ##-- if polygon has interior (ground in couryard)                
+        for interior in row.geometry.interiors:
+            oring, z = list(interior.coords), row['g_height']
+            rounded_z = round(z, dps)
+            coords_rounded = []
+            #po = []
+            for x, y in oring:
+                rounded_x = round(x, dps)
+                rounded_y = round(y, dps)
+                coords_rounded.append((rounded_x, rounded_y, rounded_z))
+                all_coords.append([rounded_x, rounded_y, rounded_z])
+            #oring.pop()
+            #for x, y in oring:
+                #all_coords.append([rounded_x, rounded_y, rounded_z])
+            for i in range(0, len(coords_rounded)-1):
+                        x1, y1, z1 = coords_rounded[i]
+                        x2, y2, z2 = coords_rounded[i+1]
+                        # deduplicate lines which overlap but go in different directions
+                        if (x1 < x2):
+                            key = (x1, y1, x2, y2)
+                        else:
+                            if (x1 == x2):
+                                if (y1 < y2):
+                                    key = (x1, y1, x2, y2)
+                                else:
+                                    key = (x2, y2, x1, y1)
+                            else:
+                                key = (x2, y2, x1, y1)
+                        if key not in segs:
+                            segs[key] = 1
+                        else:
+                            segs[key] += 1
     
     c = pd.DataFrame.from_dict(segs, orient="index").reset_index()
     c.rename(columns={'index':'coords'}, inplace=True)
@@ -384,6 +417,7 @@ def doVcBndGeom(extent, minz, maxz, T, pts):
     #-- Metadata is added manually
     cm["metadata"] = {
     "datasetTitle": "LoD1 terrain model of CPUT (Bellville) campus",
+    "dataSource": "OpenStreetMap vector and  National Geo-spatial Information raster DEM",
     "datasetReferenceDate": "2021-07-31",
     "geographicLocation": "Cape Town, South Africa",
     "referenceSystem": "urn:ogc:def:crs:EPSG::32733",
