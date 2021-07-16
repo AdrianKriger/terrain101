@@ -140,7 +140,7 @@ def getosmBld(filen):
         dis.loc[index, 'geometry'] = snapped_geom
      
     dis.to_file(filen, driver='GeoJSON') 
-    dis = dis[dis.osm_id != 904207929] # need to exclude one building
+    #dis = dis[dis.osm_id != 904207929] # need to exclude one building
      
     # create a point representing the hole within each building  
     dis['x'] = dis.representative_point().x
@@ -411,7 +411,7 @@ def doVcBndGeom(extent, minz, maxz, T, pts):
     #-- create the JSON data structure for the City Model
     cm = {}
     cm["type"] = "CityJSON"
-    cm["version"] = "0.9"
+    cm["version"] = "1.0"
     cm["CityObjects"] = {}
     cm["vertices"] = []
     #-- Metadata is added manually
