@@ -9,7 +9,7 @@ import json
 
 from ch08Code import assignZ, getosmBld, writegjson, getosmArea, getXYZ, \
     getBldVertices, getAOIVertices, appendCoords, createSgmts, executeDelaunay, pvPlot,\
-        writeObj, output_citysjon, createXYZ
+        writeObj, output_citysjon, createXYZ, upgrade_cjio
     
 def main():
     
@@ -53,7 +53,7 @@ def main():
     writeObj(pts, t, 'wvft_cput3d.obj')
     output_citysjon(extent, minz, maxz, t, pts, 'citjsn_cput3d.json')
     
-    upgrade_cjio('citjsn_cput3d.json', 'citjsnV1_cput3d.json')
+    #upgrade_cjio('citjsn_cput3d.json', 'citjsnV1_cput3d.json')
     
     
   
