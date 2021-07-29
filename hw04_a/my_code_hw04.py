@@ -292,6 +292,6 @@ def lasToPlanes(jparams):
     o3d.visualization.draw_geometries([OwnRanEuclDBSN_seg[i] for i in range(seg)] + [rest],
                                       window_name='Open3D', width=750, height=350)
     
-    #writePLY(p, OwnRanEuclDBSN_seg, seg, rest, jparams)
+    writePLY(p, OwnRanEuclDBSN_seg, seg, rest, jparams)
     
     
