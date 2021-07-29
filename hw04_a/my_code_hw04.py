@@ -203,7 +203,7 @@ def OwnRanEuclDBSN(pcd, jparams):
 
 def writePLY(p, OwnRanEuclDBSN_seg, seg, rest, jparams):
     """
-    basic funsction to write .ply 
+    basic function to write .ply 
     - with inverse normalized color [0, 1] mapped to [0, 255]
     """
     
