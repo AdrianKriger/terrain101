@@ -21,5 +21,5 @@ Set parameters with a basic [json](https://github.com/AdrianKriger/terrain101/bl
 example data [here](https://3d.bk.tudelft.nl/courses/backup/geo1015/2018/hw/04/).
 
 **some notes:**
- - plane detection is iterative without a mmaximum. The best candidates will be chosen. This might execute slowly with large datasets.
+ - plane detection is iterative without a maximum. The best candidates will be chosen. This might execute slowly with large datasets.
  - I colored the points in the `.ply`. You might not want to do this. Or rather: is there a better way?
