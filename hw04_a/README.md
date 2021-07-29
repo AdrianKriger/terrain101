@@ -18,6 +18,8 @@ Set parameters with a basic [json](https://github.com/AdrianKriger/terrain101/bl
 [geo1015_hw04.py](https://github.com/AdrianKriger/terrain101/blob/main/hw04_a/geo1015_hw04.py) will excute [my_code_hw04.py](https://github.com/AdrianKriger/terrain101/blob/main/hw04_a/my_code_hw04.py).  
 [hw04_PlaneDetection.ipynb](https://github.com/AdrianKriger/terrain101/blob/main/hw04_a/hw04_PlaneDetection.ipynb) for a look.
 
+example data [here](https://3d.bk.tudelft.nl/courses/backup/geo1015/2018/hw/04/).
+
 **some notes:**
  - plane detection is iterative without a mmaximum. The best candidates will be chosen. This might execute slowly with large datasets.
  - I colored the points in the `.ply`. You might not want to do this. Or rather: is there a better way?
