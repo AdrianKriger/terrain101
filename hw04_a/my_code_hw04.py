@@ -282,7 +282,7 @@ def lasToPlanes(jparams):
     cl, ind = pcd.remove_statistical_outlier(nb_neighbors=12, std_ratio=1.0)
      #-- voxel downsampling
     p = cl.voxel_down_sample(voxel_size = jparams['thinning-factor'])
-     #-- RANSAC multiple plane detection with euclidean clustering (DBSACN)
+     #-- RANSAC multiple plane detection with euclidean clustering (DBSCAN)
     OwnRanEuclDBSN_seg, seg, rest = OwnRanEuclDBSN(p, jparams)
      #-- timeit
     end = time.time()
