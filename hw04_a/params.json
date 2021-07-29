@@ -1,0 +1,8 @@
+{
+    "input-las": "urban.las",
+    "output-file": "urban.ply",
+    "thinning-factor": 0.05,
+    "epsilon": 1,
+    "k": 15,
+    "r": 0.5
+}
