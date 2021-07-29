@@ -14,7 +14,8 @@ Procedures include:
 
 Output a `.ply` with each point associated to a plane.
 
-Set parameters with a basic [json](https://github.com/AdrianKriger/terrain101/blob/main/hw04_a/params.json). [geo1015_hw04.py](https://github.com/AdrianKriger/terrain101/blob/main/hw04_a/geo1015_hw04.py) will excute [my_code_hw04.py](https://github.com/AdrianKriger/terrain101/blob/main/hw04_a/my_code_hw04.py).  
+Set parameters with a basic [json](https://github.com/AdrianKriger/terrain101/blob/main/hw04_a/params.json).  
+[geo1015_hw04.py](https://github.com/AdrianKriger/terrain101/blob/main/hw04_a/geo1015_hw04.py) will excute [my_code_hw04.py](https://github.com/AdrianKriger/terrain101/blob/main/hw04_a/my_code_hw04.py).  
 [hw04_PlaneDetection.ipynb](https://github.com/AdrianKriger/terrain101/blob/main/hw04_a/hw04_PlaneDetection.ipynb) for a look.
 
 **some notes:**
