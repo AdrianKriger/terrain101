@@ -19,5 +19,5 @@ Set parameters with a basic [json](https://github.com/AdrianKriger/terrain101/bl
 [hw04_PlaneDetection.ipynb](https://github.com/AdrianKriger/terrain101/blob/main/hw04_a/hw04_PlaneDetection.ipynb) for a look.
 
 **some notes:**
- - plane detection is iterative without a mmaximum. The best candidates will be chosen. This might execture slowly with large datasets.
+ - plane detection is iterative without a mmaximum. The best candidates will be chosen. This might execute slowly with large datasets.
  - I colored the points in the `.ply`. You might not want to do this. Or rather: is there a better way?
