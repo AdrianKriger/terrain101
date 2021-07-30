@@ -13,12 +13,19 @@ code to:
 based on:
     - Yueci Deng: https://github.com/yuecideng/Multiple_Planes_Detection
     - Florent Poux: https://towardsdatascience.com/how-to-automate-3d-point-cloud-segmentation-and-clustering-with-python-343c9039e4f5
+    - Kevin Dwyer: https://gist.github.com/dwyerk/10561690
 """
 import json
 import numpy as np
 from scipy.linalg import eigh
 
 import numpy as np
+import shapely.geometry as geometry
+from shapely.ops import unary_union, polygonize
+from scipy.spatial import Delaunay
+
+import pandas as pd
+import geopandas as gpd
 
 import open3d as o3d
 import pdal
@@ -167,7 +174,7 @@ def OwnRanEuclDBSN(pcd, jparams):
     rest=pcd
     d_threshold = jparams['epsilon']
     
-    min_ratio = 0.05 # (float, optional): The minimum left points ratio to end the Detection. Defaults to 0.05.
+    min_ratio = 0.1 # (float, optional): The minimum left points ratio to end the Detection. Defaults to 0.05.
     N = len(np.asarray(pcd.points))
     count = 0
     seg = 0
@@ -191,7 +198,8 @@ def OwnRanEuclDBSN(pcd, jparams):
         count += len(inliers)
         seg += 1
         
-    labels = np.array(rest.cluster_dbscan(eps=d_threshold, min_points=5))
+    labels = np.array(rest.cluster_dbscan(eps=d_threshold + 1.5, 
+                                          min_points=10))
     max_label = labels.max()
     print(f"point cloud has {max_label + 1} clusters")
 
@@ -251,7 +259,44 @@ def writePLY(p, OwnRanEuclDBSN_seg, seg, rest, jparams):
     np.savetxt(jparams['output-file'], l, delimiter=' ', 
                fmt = ' '.join(['%1.3f']*3 + ['%i']*4),
                header=header, comments='')
+  
+def concaveHull(points, alpha):
+    """
+    Compute the alpha shape (concave hull) of a set
+    of points.
+    @param points: Iterable container of points.
+    @param alpha: alpha value to influence the
+        gooeyness of the border. Smaller numbers
+        don't fall inward as much as larger numbers.
+        Too large, and you lose everything!
+    """
+       
+    if len(points) < 4:
+        # When you have a triangle, there is no sense
+        # in computing an alpha shape.
+        return geometry.MultiPoint(list(points)).convex_hull
     
+    #meanDis = np.mean(pdist(points))
+
+    #coords = np.array([point.coords[0] for point in points])
+    tri = Delaunay(points)
+    triangles = points[tri.vertices]
+    a = ((triangles[:,0,0] - triangles[:,1,0]) ** 2 + (triangles[:,0,1] - triangles[:,1,1]) ** 2) ** 0.5
+    b = ((triangles[:,1,0] - triangles[:,2,0]) ** 2 + (triangles[:,1,1] - triangles[:,2,1]) ** 2) ** 0.5
+    c = ((triangles[:,2,0] - triangles[:,0,0]) ** 2 + (triangles[:,2,1] - triangles[:,0,1]) ** 2) ** 0.5
+    s = ( a + b + c ) / 2.0
+    areas = (s*(s-a)*(s-b)*(s-c)) ** 0.5
+    circums = a * b * c / (4.0 * areas)
+    filtered = triangles[circums < (1.0 / alpha)]
+    edge1 = filtered[:,(0,1)]
+    edge2 = filtered[:,(1,2)]
+    edge3 = filtered[:,(2,0)]
+    edge_points = np.unique(np.concatenate((edge1,edge2,edge3)), axis = 0).tolist()
+    m = geometry.MultiLineString(edge_points)
+    triangles = list(polygonize(m))
+    
+    return unary_union(triangles), edge_points
+ 
 
 def lasToPlanes(jparams):
     """ 
@@ -293,5 +338,20 @@ def lasToPlanes(jparams):
                                       window_name='Open3D', width=750, height=350)
     
     writePLY(p, OwnRanEuclDBSN_seg, seg, rest, jparams)
+    
+    if jparams['shapes'] == 'True':
+        shapes = [] 
+        for i in OwnRanEuclDBSN_seg:
+            pnts = np.array(OwnRanEuclDBSN_seg[i].points)
+            xy = pnts[:,[0, 1]]
+            shape, edge_pnts = concaveHull(xy, alpha=0.4)
+            shapes.append([shape])
+        
+        df = pd.DataFrame(shapes, columns = ['geometry'])    
+        gdf = gpd.GeoDataFrame(df)  
+         #-- plot
+        gdf.boundary.plot()
+         #-- save
+        gdf.to_file(jparams["sh_fname"])
     
     
