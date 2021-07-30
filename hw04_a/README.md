@@ -23,3 +23,4 @@ example data [here](https://3d.bk.tudelft.nl/courses/backup/geo1015/2018/hw/04/)
 **some notes:**
  - plane detection is iterative without a maximum. The best candidates will be chosen. This might execute slowly with large datasets.
  - I colored the points in the `.ply`. You might not want to do this. Or rather: is there a better way?
+ - If `shapes` in the [params](https://github.com/AdrianKriger/terrain101/blob/main/hw04_a/params.json) is set to `True`; the alpha-shape of the planes with be written to a `.shp`. It's not very regular.
