@@ -2,7 +2,9 @@
     "input-las": "urban.las",
     "output-file": "urban.ply",
     "thinning-factor": 0.05,
-    "epsilon": 1,
+    "epsilon": 0.25,
     "k": 15,
-    "r": 0.5
+    "r": 3,
+    "shapes": "True",
+    "sh_fname": "concaveHull.shp"
 }
