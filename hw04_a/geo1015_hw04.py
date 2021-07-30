@@ -12,8 +12,8 @@ def main():
     #detect_planes(jparams)
     
     lasToPlanes(jparams)
-     #-- runtime for smaller dataset: runtime: 0:00:15.231516
-     #-- runtime for larger dataset: runtime: 0:01:13.752119
+     #-- runtime for smaller dataset: 0:00:15.799140
+     #-- runtime for larger dataset: 0:01:28.193313
 
 if __name__ == "__main__":
     main()
