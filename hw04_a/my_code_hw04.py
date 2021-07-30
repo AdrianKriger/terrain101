@@ -10,7 +10,7 @@ code to:
         - including multiple RANSAC plane detection 
             - and refinement through euclidean clustering 
     - write a .ply of the points associated to a plane.
-    -  optionally write a concave hull of the plane to .shp
+    - optionally write a concave hull of the plane to .shp
 based on:
     - Yueci Deng: https://github.com/yuecideng/Multiple_Planes_Detection
     - Florent Poux: https://towardsdatascience.com/how-to-automate-3d-point-cloud-segmentation-and-clustering-with-python-343c9039e4f5
