@@ -14,7 +14,7 @@ code to:
 based on:
     - Yueci Deng: https://github.com/yuecideng/Multiple_Planes_Detection
     - Florent Poux: https://towardsdatascience.com/how-to-automate-3d-point-cloud-segmentation-and-clustering-with-python-343c9039e4f5
-    - Kevin Dwyer: https://gist.github.com/dwyerk/10561690
+    - Simon Cozens: https://gist.github.com/dwyerk/10561690
 """
 import json
 import numpy as np
