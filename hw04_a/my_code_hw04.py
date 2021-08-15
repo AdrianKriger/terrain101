@@ -186,11 +186,12 @@ def OwnRanEuclDBSN(pcd, jparams):
                                                           ransac_n = jparams['k'],
                                                           num_iterations = 1000)
         segments[seg]=rest.select_by_index(inliers)
-        labels = np.array(segments[seg].cluster_dbscan(eps=d_threshold, #*10, 
+        labels = np.array(segments[seg].cluster_dbscan(eps = d_threshold, #*10, 
                                                        min_points=10))
-        candidates=[len(np.where(labels==j)[0]) for j in np.unique(labels)]
-        best_candidate=int(np.unique(labels)[np.where(candidates==np.max(candidates))[0]])
+        candidates = [len(np.where(labels==j)[0]) for j in np.unique(labels)]
+        best_candidate = int(np.unique(labels)[np.where(candidates==np.max(candidates))[0]])
         print("the best candidate is: ", best_candidate)
+        
         rest = rest.select_by_index(inliers, invert=True)+segments[seg].select_by_index(list(np.where(labels!=best_candidate)[0]))
         segments[seg] = segments[seg].select_by_index(list(np.where(labels==best_candidate)[0]))
         segments[seg].paint_uniform_color(list(colors[:3]))
