@@ -24,7 +24,7 @@ building outlines available [here](https://odp-cctegis.opendata.arcgis.com/datas
 Consult [CoCT_cput.ipynb](https://github.com/AdrianKriger/terrain101/blob/main/hw01_b/CoCT_cput.ipynb) for a look at the result. 
 [fancyPlotter.py](https://github.com/AdrianKriger/terrain101/blob/main/hw01_b/fancyPlotter.py) to visualize - via [PyVista](https://docs.pyvista.org/) - (as below).
 
-![Alt text](https://github.com/AdrianKriger/terrain101/blob/main/hw01_b/hw01_b_DtmDsm.gif)
+#![Alt text](https://github.com/AdrianKriger/terrain101/blob/main/hw01_b/hw01_b_DtmDsm.gif)
 
 Good to know:
 - for larger datasets a multi-processor program, as per the [original](https://github.com/khalhoz/geo1101-ahn3-GF-and-Interpolation), might be more effective;
