@@ -12,4 +12,5 @@ Experiments in the computation and representation of terrain
 Additional:
 - ch06: topographic features;  
 - ch07: runoff modelling;
-- ch08: representation conversions (raster with vector to constrained delaunay (tin)).
+- ch08: representation conversions (raster with vector to constrained delaunay (tin));
+- gms260S_MA02: Geomatics 2. Major Assignment 2: **Photogrammetric Processing**.
