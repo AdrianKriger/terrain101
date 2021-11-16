@@ -2,8 +2,8 @@
 
 Alternate photogrammtric workflow. Parse an `xyz.csv` point-cloud through a python script to:
 -	classify ground and non-ground – with a [PDAL](https://pdal.io/) pipeline;
--	TIN interpolation to raster DTM – via [startinpy](https://github.com/hugoledoux/startinpy/) with Laplace interpolation;
--	Raster DSM interpolation – through a home-baked quadrant-based inverse-distance-weighting; and 
+-	TIN to raster DTM – via [startinpy](https://github.com/hugoledoux/startinpy/) with Laplace interpolation;
+-	Raster DSM – through a home-baked quadrant-based inverse-distance-weighting; and 
 -	hillshade and contour creation – with [GDAL](https://gdal.org/). 
 
 
