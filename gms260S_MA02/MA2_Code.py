@@ -10,11 +10,11 @@
 
 # - takes the xyz.csv and executes MA2_Code.py; that is:
 # - enter PDAL pipeline (outlier removal, 
-#                        ground filtering, write .las,
-#                        raster DTM via TIN with Laplace interpolation, 
-#                        raster DSM quadrant IDW,
-#                        hillshade and 
-#                        contours)
+#                        ground filtering, write .las)
+# - raster DTM via TIN with Laplace interpolation;
+# - raster DSM quadrant IDW;
+# - hillshade and 
+# - contours.
 
 # - dtm and dsm courtesy AHN3 procedure: 
 #     https://github.com/tudelft3d/geo1101.2020.ahn3 and 
