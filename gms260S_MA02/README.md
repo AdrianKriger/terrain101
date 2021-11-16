@@ -6,6 +6,8 @@ Alternate photogrammtric workflow. Parse an `xyz.csv` point-cloud through a pyth
 -	Raster DSM interpolation – through a home-baked quadrant-based inverse-distance-weighting; and 
 -	hillshade and contour creation – with [GDAL](https://gdal.org/). 
 
+
+
 GMS260S. Geomatics 2  
 Cape Peninsula University of Technology  
 Engineering and the Built Environment  
