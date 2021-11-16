@@ -1,0 +1,25 @@
+{
+    "input-ply": "efoto_xyz.csv",
+    "out-las": "efoto_xyz.las",
+    "dtm": "True",
+    "dsm": "True",
+    "size": 2,
+    
+    "crs": "+proj=utm +zone=23 +south +datum=WGS84 +units=m +no_defs",
+    
+    "thinning-factor": 5,
+    "initial_distance": 5,
+    "max_distance": 20,
+    "gf-angle": 0.5,
+    
+    "pdal-idw-rad": 25, "pdal-idw-pow": 2, "pdal-idw-wnd": 15,
+    
+    "start_rk": 5, "pwr": 2, "minp": 1, "incr_rk": 5, "method": "radial", "tolerance": 2, 
+    "maxiter": 25,
+    
+    "plot": "True",
+    
+    "hillshade": "True",
+    "contours": "True",
+    "cnt_interval": 5  
+}
